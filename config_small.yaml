@@ -1,0 +1,6 @@
+seed: 42
+subset:
+  train_size_answerable: 120
+  train_size_unanswerable: 80
+  valid_size: 50
+  preserve_ratio: true

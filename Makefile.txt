@@ -1,0 +1,24 @@
+PY=python
+CONFIG=config.yaml
+
+subset:
+	$(PY) src/run_subset.py --config $(CONFIG)
+
+train_bert:
+	$(PY) src/train_bert.py --config $(CONFIG)
+
+train_roberta:
+	$(PY) src/train_roberta.py --config $(CONFIG)
+
+train_deberta:
+	$(PY) src/train_deberta.py --config $(CONFIG)
+
+train_flan_t5:
+	$(PY) src/train_flan_t5.py --config $(CONFIG)
+
+evaluate_bert:
+	$(PY) src/evaluate.py --model_dir results/checkpoints/bert --config $(CONFIG)
+
+all_models: train_bert train_roberta train_deberta
+
+.PHONY: subset train_bert train_roberta train_deberta train_flan_t5 evaluate_bert all_models

@@ -1,0 +1,27 @@
+seed: 42
+subset:
+  train_size_answerable: 6000
+  train_size_unanswerable: 3000
+  valid_size: 1000
+  preserve_ratio: true
+paths:
+  subset_train: data/subset_train.json
+  subset_valid: data/subset_valid.json
+models:
+  bert: bert-base-uncased
+  roberta: roberta-base
+  deberta: microsoft/deberta-base
+  flan_t5: google/flan-t5-base
+training_defaults:
+  max_length: 384
+  doc_stride: 128
+  batch_size: 16
+  learning_rate: 3e-5
+  epochs: 3
+  warmup_ratio: 0.1
+  weight_decay: 0.01
+  fp16: true
+evaluation:
+  n_best_size: 20
+  max_answer_length: 30
+  tune_null_threshold: true
